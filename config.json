@@ -1,0 +1,6 @@
+{
+  "url_main_page" : "https://demoqa.com/",
+  "timeout" : 3,
+  "max_len_srt" : 200,
+  "browser" : "Chrome"
+}
