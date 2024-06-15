@@ -5,7 +5,7 @@ from forms_pages.left_menu_form import LeftMenuForm
 
 class BrowserWindowsPage(BasePage):
     def __init__(self):
-        super().__init__("//*[@id='browserWindows']", 'Browser windows form')
+        super().__init__("//*[@id='browserWindows']", "Browser windows form")
 
     __New_tab_btn = ButtonElement("//*[@id='tabButton']", "New tab btn")
 

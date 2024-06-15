@@ -5,7 +5,10 @@ from framework.iframe_element import IframeElement
 
 class FramesPage(BasePage):
     def __init__(self):
-        super().__init__("//*[@id='framesWrapper']//*[contains(text(),'Frames')]", 'Nested frames form')
+        super().__init__(
+            "//*[@id='framesWrapper']//*[contains(text(),'Frames')]",
+            "Nested frames form",
+        )
 
     __Iframe1 = IframeElement("//*[@id='frame1']", "Frame 1")
     __Iframe2 = IframeElement("//*[@id='frame2']", "Frame 2")
