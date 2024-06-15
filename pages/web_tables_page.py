@@ -7,12 +7,16 @@ from forms_pages.left_menu_form import LeftMenuForm
 
 class WebTablesPage(BasePage):
     def __init__(self):
-        super().__init__("//*[contains(@class,'web-tables-wrapper')]", "Web tables form")
+        super().__init__(
+            "//*[contains(@class,'web-tables-wrapper')]", "Web tables form"
+        )
 
     left_menu = LeftMenuForm()
 
     __Add_btn = ButtonElement("//*[@id='addNewRecordButton']", "Add button")
-    __Registration_form = ContainerElement("//*[contains(@class,'modal-content')]", "Registration form")
+    __Registration_form = ContainerElement(
+        "//*[contains(@class,'modal-content')]", "Registration form"
+    )
     __First_name_input = InputElement("//*[@id='firstName']", "First name input")
     __Last_name_input = InputElement("//*[@id='lastName']", "Last name input")
     __Email_input = InputElement("//*[@id='userEmail']", "Email input")
@@ -22,8 +26,10 @@ class WebTablesPage(BasePage):
     __Submit_btn = ButtonElement("//*[@id='submit']", "Submit button")
     __Html_body = ContainerElement("//body", "Body html element")
     __Table_cell = ContainerElement("//*[contains(@class,'rt-td')]", "Table cell")
-    __Delete_bnt = ButtonElement(f"//*[contains(@class,'action-buttons')]//*[contains(@title,'Delete')]",
-                                 "Delete btn user1")
+    __Delete_bnt = ButtonElement(
+        f"//*[contains(@class,'action-buttons')]//*[contains(@title,'Delete')]",
+        "Delete btn user1",
+    )
 
     def click_add_btn(self):
         self.__Add_btn.click_element()

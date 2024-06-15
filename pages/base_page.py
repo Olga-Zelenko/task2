@@ -7,31 +7,28 @@ from urllib.parse import urlparse
 
 
 class BasePage(object):
-
     def __init__(self, locator_uniq_el: str, name_uniq_el: str):
-        logger.info(f"Инициализируем страницу {self.__class__.__name__}")
         self.locator_uniq_el = locator_uniq_el
         self.name_uniq_el = name_uniq_el
         self.by = By.XPATH
 
     def is_open_page(self) -> bool:
-        logger.info(f"Проверяем, что страница {self.__class__.__name__} открылась")
         wait.until(EC.presence_of_element_located((self.by, self.locator_uniq_el)))
         return driver.find_element(self.by, self.locator_uniq_el).is_displayed()
 
     @staticmethod
     def scroll_down(offset=0) -> None:
         if offset:
-            driver.execute_script('window.scrollTo(0, {0});'.format(offset))
+            driver.execute_script("window.scrollTo(0, {0});".format(offset))
         else:
-            driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
     @staticmethod
     def scroll_up(offset=0) -> None:
         if offset:
-            driver.execute_script('window.scrollTo(0, -{0});'.format(offset))
+            driver.execute_script("window.scrollTo(0, -{0});".format(offset))
         else:
-            driver.execute_script('window.scrollTo(0, -document.body.scrollHeight);')
+            driver.execute_script("window.scrollTo(0, -document.body.scrollHeight);")
 
     @staticmethod
     def switch_alert() -> Alert:
