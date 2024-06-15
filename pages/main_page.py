@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from framework.button_element import ButtonElement
+from framework.button_element import Button
 
 
 class MainPage(BasePage):
@@ -8,11 +8,11 @@ class MainPage(BasePage):
             "//*[contains(@class,'category-cards')]", "Uniq element - Category cards"
         )
 
-    __Alerts_frame_btn = ButtonElement(
+    __Alerts_frame_btn = Button(
         "//*[contains(text(),'Alerts')]//ancestor::*[contains(@class, 'top-card')]",
         "Section 'Alerts, Frame & Windows'",
     )
-    __Elements_btn = ButtonElement(
+    __Elements_btn = Button(
         "//*[contains(text(),'Elements')]//ancestor::*[contains(@class, 'top-card')]",
         "Section 'Elements'",
     )

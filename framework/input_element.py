@@ -2,7 +2,7 @@ from .base_element import BaseElement
 from logger import logger
 
 
-class InputElement(BaseElement):
+class Input(BaseElement):
     def __init__(self, locator, name):
         super().__init__(locator, name)
 

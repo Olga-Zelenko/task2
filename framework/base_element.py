@@ -1,7 +1,9 @@
-from driver import driver, wait
+from browser_class import Browser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from logger import logger
+
+driver = Browser()
 
 
 class BaseElement:
@@ -12,12 +14,12 @@ class BaseElement:
 
     def find_element(self):
         logger.info(f"Ищем на странице элемент {self.name}")
-        wait.until(EC.presence_of_element_located((self.by, self.locator)))
+        driver.wait().until(EC.presence_of_element_located((self.by, self.locator)))
         return driver.find_element(self.by, self.locator)
 
     def find_elements(self):
         logger.info(f"Ищем на странице элементы {self.name}")
-        wait.until(EC.presence_of_element_located((self.by, self.locator)))
+        driver.wait().until(EC.presence_of_element_located((self.by, self.locator)))
         return driver.find_elements(self.by, self.locator)
 
     def is_displayed(self):
@@ -38,11 +40,11 @@ class BaseElement:
 
     def wait_visibility_element(self):
         logger.info(f"Ожидаем, что элемент {self.name} виден на странице")
-        wait.until(EC.visibility_of_element_located((self.by, self.locator)))
+        driver.wait().until(EC.visibility_of_element_located((self.by, self.locator)))
 
     def wait_invisibility_element(self):
         logger.info(f"Ожидаем, что элемент {self.name} не виден на странице")
-        wait.until(EC.invisibility_of_element_located((self.by, self.locator)))
+        driver.wait().until(EC.invisibility_of_element_located((self.by, self.locator)))
 
     def get_attribute(self, name_attribute: str) -> str:
         logger.info(f"Получаем значение атрибута {name_attribute} элемента {self.name}")

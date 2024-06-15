@@ -20,47 +20,31 @@ class ParsConfig:
 class ParsingData:
     """Обрабатывает данные из config-словаря"""
 
-    def __init__(self, data: dict):
-        self.data = data
+    data = ParsConfig("config.json").parsing_config()
 
-    def url_main_page(self):
-        return self.data["url_main_page"]
-
-    def timeout(self):
-        return self.data["timeout"]
-
-    def language_browser(self):
-        return self.data["language_browser"]
-
-    def mode_browser(self):
-        return self.data["mode_browser"]
-
-    def max_len_srt(self):
-        return self.data["max_len_srt"]
-
-    def browser(self):
-        return self.data["browser"]
+    url_main_page = data["url_main_page"]
+    timeout = data["timeout"]
+    max_len_srt = data["max_len_srt"]
+    chrome = data["chrome"]
+    firefox = data["firefox"]
 
 
 class RandomStr:
-    def __init__(self, max_len_str: int):
-        self.len_str = random.randint(1, max_len_str)
 
-    def generation_str(self) -> str:
+    len_str = random.randint(1, ParsingData.max_len_srt)
+
+    @staticmethod
+    def generation_str() -> str:
         """Генерирует рандомную строку рандомной длины с заданным максимальным значением длины строки
         из букв/цифр/знаков препинания"""
         return "".join(
             random.choices(
                 string.ascii_letters + string.digits + string.punctuation + " ",
-                k=self.len_str,
+                k=RandomStr.len_str,
             )
         )
 
 
-def get_list_value_elem_class(instance):
-    return list(map(str, list(instance.__dict__.values())))
-
-
-config_dict = ParsConfig("config.json").parsing_config()
-settings = ParsingData(config_dict)
-random_str = RandomStr(settings.max_len_srt()).generation_str()
+# config_dict = ParsConfig("config.json").parsing_config()
+# settings = ParsingData(config_dict)
+# random_str = RandomStr(ParsingData.max_len_srt()).generation_str()
