@@ -4,8 +4,10 @@ from pages.nested_frames_page import NestedFramesPage
 from pages.frames_page import FramesPage
 from logger import logger
 from data_test import TestData
+import pytest
 
 
+@pytest.mark.usefixtures("setup_and_close_browser")
 class Test2Iframe:
     def test_2_iframe(self):
         logger.info(f"\nНачинаем выполнение теста {self.__class__.__name__}")

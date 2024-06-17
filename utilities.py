@@ -45,6 +45,8 @@ class RandomStr:
         )
 
 
-# config_dict = ParsConfig("config.json").parsing_config()
-# settings = ParsingData(config_dict)
-# random_str = RandomStr(ParsingData.max_len_srt()).generation_str()
+def get_list_value_elem_class(instance):
+    return list(map(str, list(instance.__dict__.values())))
+
+
+

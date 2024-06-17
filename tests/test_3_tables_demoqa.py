@@ -3,10 +3,11 @@ from pages.elements_page import ElementsPage
 from pages.web_tables_page import WebTablesPage
 from utilities import get_list_value_elem_class
 from logger import logger
-from data_test import *
+from data_test import TestData, user_1, user_2
 import pytest
 
 
+@pytest.mark.usefixtures("setup_and_close_browser")
 class Test3Tables:
     @pytest.mark.parametrize("user", [user_1, user_2])
     def test_3_tables(self, user):

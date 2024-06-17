@@ -1,9 +1,4 @@
-from typing import Optional
-
-from selenium.webdriver.remote.webdriver import WebDriver
-
-
-class SingletonWebDriver:
+class Singleton:
     __instance = None
 
     def __new__(cls, *args, **kwargs):
@@ -14,4 +9,3 @@ class SingletonWebDriver:
     @classmethod
     def clear_instance(cls):
         cls.__instance = None
-        return cls.__instance

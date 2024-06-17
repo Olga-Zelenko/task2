@@ -1,9 +1,9 @@
 import logging
 
-from singleton_object import SingletonWebDriver
+from singleton_object import Singleton
 
 
-class BaseLogger(SingletonWebDriver):
+class BaseLogger(Singleton):
     logger = logging.getLogger(__name__)
     fileHandler = logging.FileHandler("logfile.log", encoding="utf-8", mode="w")
     logger.addHandler(fileHandler)

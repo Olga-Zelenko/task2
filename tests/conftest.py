@@ -7,5 +7,5 @@ from browser_class import Browser
 def setup_and_close_browser():
     Browser().maximize_window()
     Browser().get_page(ParsingData.url_main_page)
-    yield Browser()
+    yield
     Browser().close_browser()

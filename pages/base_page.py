@@ -1,12 +1,7 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from browser_class import Browser
-from selenium.webdriver.common.alert import Alert
-from logger import logger
 from urllib.parse import urlparse
-
-driver = Browser()
-
 
 
 class BasePage(object):
@@ -16,6 +11,12 @@ class BasePage(object):
         self.by = By.XPATH
 
     def is_open_page(self) -> bool:
-        return driver.check_element_displayed(self.by, self.locator_uniq_el)
+        Browser().wait().until(
+            EC.presence_of_element_located((self.by, self.locator_uniq_el))
+        )
+        return Browser().find_element(self.by, self.locator_uniq_el).is_displayed()
 
-
+    def get_relative_link(self):
+        url = urlparse(Browser().get_current_url())
+        relative_link = url.path
+        return relative_link
