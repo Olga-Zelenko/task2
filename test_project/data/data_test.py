@@ -1,0 +1,13 @@
+class TestData:
+    MESSAGE_BUTTON = "You clicked a button"
+    MESSAGE_CONFIRM_BOX = "Do you confirm action?"
+    MESSAGE_ALERT = "You selected Ok"
+    MESSAGE_PROMPT_BOX = "Please enter your name"
+    MESSAGE_SEND_KEYS_ALERT = "You entered "
+    TEXT_IFRAME1_PARENT = "Parent frame"
+    TEXT_IFRAME_CHILD = "Child Iframe"
+    CLASS_OPEN_REGISTRATION_FORM = "modal-open"
+    URL_SAMPLE = "/sample"
+    ATTRIBUTE = "class"
+    NUMBER_FRAMES = 1
+    NUMBER_LEVEL_FRAMES = 2
